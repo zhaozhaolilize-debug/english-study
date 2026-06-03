@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>我的英语学习站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --surface2: #f0efe9;
+    --border: #e8e6de;
+    --text-primary: #1a1916;
+    --text-secondary: #6b6960;
+    --text-hint: #b0aea6;
+    --accent: #2d6a4f;
+    --accent-light: #e8f4ee;
+    --accent2: #e76f51;
+    --accent2-light: #fdf0ec;
+    --highlight-pink: #fce4ec;
+    --highlight-yellow: #fff8e1;
+    --highlight-purple: #ede7f6;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── HOME ── */
+  .home { display: block; }
+  .home.hidden { display: none; }
+
+  .home-header {
+    padding: 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .home-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+  }
+  .home-logo span { color: var(--accent); }
+
+  .home-subtitle {
+    padding: 4px 20px 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  .episode-list { padding: 0 16px 100px; display: flex; flex-direction: column; gap: 16px; }
+
+  .ep-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border: 1px solid var(--border);
+  }
+  .ep-card:active { transform: scale(0.98); }
+
+  .ep-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #1a1916;
+    position: relative;
+    overflow: hidden;
+  }
+  .ep-thumbnail video, .ep-thumbnail img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .ep-thumbnail-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1a1916 0%, #2d2c28 100%);
+    color: var(--text-hint);
+    font-size: 13px;
+  }
+  .ep-duration {
+    position: absolute; bottom: 10px; left: 12px;
+    background: rgba(0,0,0,0.7); color: #fff;
+    font-size: 12px; padding: 2px 7px; border-radius: 5px;
+    font-weight: 500; letter-spacing: 0.3px;
+  }
+  .ep-author {
+    position: absolute; bottom: 10px; right: 12px;
+    color: rgba(255,255,255,0.75); font-size: 11px;
+  }
+
+  .ep-body { padding: 14px 16px 16px; }
+  .ep-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .ep-number { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.3px; }
+  .ep-stars { display: flex; gap: 2px; }
+  .star { font-size: 14px; }
+  .star.on { color: #f4a522; }
+  .star.off { color: #ddd; }
+
+  .ep-tags { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .ep-tag {
+    font-size: 11px; padding: 3px 9px; border-radius: 20px;
+    border: 1px solid var(--border); color: var(--text-secondary);
+  }
+  .ep-accent { font-size: 12px; color: var(--text-secondary); margin-left: auto; }
+
+  .ep-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; font-weight: 300; }
+
+  .ep-meta { display: flex; justify-content: space-between; align-items: center; }
+  .ep-stats { display: flex; gap: 12px; }
+  .ep-stat { font-size: 12px; color: var(--text-hint); }
+  .ep-stat strong { color: var(--text-secondary); font-weight: 500; }
+  .ep-date { font-size: 11px; color: var(--text-hint); }
+
+  /* ── PLAYER PAGE ── */
+  .player-page { display: none; flex-direction: column; min-height: 100vh; }
+  .player-page.active { display: flex; }
+
+  .video-wrap {
+    width: 100%; aspect-ratio: 16/9;
+    background: #000; position: relative; flex-shrink: 0;
+  }
+  .video-wrap video { width: 100%; height: 100%; display: block; }
+  .video-placeholder {
+    width: 100%; height: 100%; display: flex;
+    align-items: center; justify-content: center;
+    background: #111; color: #555; font-size: 13px; flex-direction: column; gap: 6px;
+  }
+
+  .nav-row {
+    position: absolute; top: 12px; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 14px;
+  }
+  .nav-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.18); backdrop-filter: blur(8px);
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px; transition: background 0.15s;
+  }
+  .nav-btn:active { background: rgba(255,255,255,0.3); }
+  .nav-left, .nav-right { display: flex; gap: 8px; }
+
+  .loop-badge {
+    position: absolute; bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.8);
+    font-size: 11px; padding: 3px 8px; border-radius: 6px;
+    display: flex; align-items: center; gap: 5px; cursor: pointer;
+  }
+
+  /* Tabs */
+  .tab-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-shrink: 0;
+  }
+  .tab-btn {
+    flex: 1; padding: 13px 4px; border: none; background: none;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13.5px; color: var(--text-hint); cursor: pointer;
+    border-bottom: 2.5px solid transparent; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+  .tab-btn.active { color: var(--text-primary); border-bottom-color: var(--text-primary); font-weight: 500; }
+
+  /* Progress bar */
+  .progress-wrap {
+    background: var(--surface); padding: 10px 16px 0;
+    border-bottom: 1px solid var(--border); flex-shrink: 0;
+  }
+  .progress-bar-track {
+    width: 100%; height: 3px; background: var(--border); border-radius: 3px;
+    cursor: pointer; position: relative;
+  }
+  .progress-bar-fill { height: 100%; background: var(--text-primary); border-radius: 3px; transition: width 0.1s; }
+  .progress-times { display: flex; justify-content: space-between; padding: 5px 0 8px; }
+  .progress-time { font-size: 11px; color: var(--text-hint); font-variant-numeric: tabular-nums; }
+
+  /* Controls */
+  .controls {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 12px 10px 20px;
+    display: flex; justify-content: space-around; align-items: center;
+    flex-shrink: 0;
+  }
+  .ctrl-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: none; border: none; cursor: pointer; padding: 4px 6px;
+    border-radius: 8px; transition: background 0.15s;
+  }
+  .ctrl-btn:active { background: var(--surface2); }
+  .ctrl-icon { font-size: 20px; line-height: 1; }
+  .ctrl-label { font-size: 10px; color: var(--text-secondary); font-family: 'Noto Sans SC', sans-serif; }
+  .ctrl-btn.play-btn .ctrl-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--text-primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  /* ── NORMAL MODE ── */
+  .normal-content { flex: 1; overflow-y: auto; background: var(--bg); }
+  .sub-item {
+    padding: 16px 18px; background: var(--surface);
+    margin: 1px 0; cursor: pointer; transition: background 0.15s;
+    border-bottom: 1px solid var(--border);
+  }
+  .sub-item:first-child { margin-top: 0; }
+  .sub-item.active { background: var(--accent-light); border-left: 3px solid var(--accent); }
+  .sub-item:active { background: var(--surface2); }
+
+  .sub-en {
+    font-size: 15px; line-height: 1.6; margin-bottom: 5px; font-weight: 400;
+    letter-spacing: -0.1px;
+  }
+  .sub-zh { font-size: 13px; color: var(--text-secondary); line-height: 1.5; font-weight: 300; }
+
+  .sub-en .kw-pink { background: var(--highlight-pink); padding: 1px 4px; border-radius: 4px; }
+  .sub-en .kw-yellow { background: var(--highlight-yellow); padding: 1px 4px; border-radius: 4px; }
+  .sub-en .kw-purple { background: var(--highlight-purple); padding: 1px 4px; border-radius: 4px; }
+
+  .sub-footer {
+    margin-top: 10px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .sub-num { font-size: 11px; color: var(--text-hint); }
+  .sub-actions { display: flex; gap: 14px; }
+  .sub-action { background: none; border: none; cursor: pointer; font-size: 16px; color: var(--text-hint); }
+  .sub-action:active { color: var(--accent2); }
+
+  /* ── SHADOWING MODE ── */
+  .shadow-content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    padding: 30px 24px 24px; background: var(--bg);
+    text-align: center; overflow: hidden;
+  }
+
+  .shadow-counter {
+    font-size: 13px; color: var(--text-hint); align-self: flex-start;
+    display: flex; gap: 16px; align-items: center; width: 100%;
+  }
+  .shadow-heart { font-size: 16px; }
+
+  .shadow-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%; }
+
+  .shadow-phonetic {
+    font-size: 14px; color: var(--text-hint); line-height: 1.7;
+    font-family: 'DM Sans', monospace; letter-spacing: 0.3px;
+  }
+  .shadow-en {
+    font-size: 22px; font-weight: 600; line-height: 1.4;
+    letter-spacing: -0.5px; max-width: 320px;
+  }
+  .shadow-en .kw-pink { background: var(--highlight-pink); padding: 2px 6px; border-radius: 6px; }
+  .shadow-en .kw-yellow { background: var(--highlight-yellow); padding: 2px 6px; border-radius: 6px; }
+  .shadow-en .kw-purple { background: var(--highlight-purple); padding: 2px 6px; border-radius: 6px; }
+
+  .shadow-zh { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+  .shadow-mic-area { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .shadow-mic-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow);
+  }
+  .shadow-mic-btn.recording {
+    background: var(--accent2); border-color: var(--accent2);
+    animation: pulse 1.2s infinite;
+  }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(231,111,81,0.4); } 50% { box-shadow: 0 0 0 12px rgba(231,111,81,0); } }
+  .shadow-mic-hint { font-size: 12px; color: var(--text-hint); }
+
+  /* ── VOCAB MODE ── */
+  .vocab-content { flex: 1; overflow-y: auto; background: var(--bg); }
+  .vocab-header-bar {
+    padding: 14px 18px; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .vocab-filters { display: flex; gap: 8px; }
+  .vocab-filter-btn {
+    padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--border);
+    background: none; font-size: 12px; cursor: pointer; font-family: 'Noto Sans SC', sans-serif;
+    transition: all 0.15s;
+  }
+  .vocab-filter-btn.active { background: var(--text-primary); color: #fff; border-color: var(--text-primary); }
+  .vocab-count { font-size: 12px; color: var(--text-hint); }
+
+  .vocab-list { padding: 0; }
+  .vocab-item {
+    padding: 16px 18px; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 14px;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .vocab-item:active { background: var(--surface2); }
+  .vocab-num { font-size: 13px; color: var(--text-hint); width: 20px; text-align: right; flex-shrink: 0; }
+  .vocab-word { font-size: 16px; font-weight: 500; flex: 1; letter-spacing: -0.2px; }
+  .vocab-meaning { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .vocab-badges { display: flex; gap: 6px; flex-shrink: 0; align-items: center; }
+  .vocab-level {
+    font-size: 11px; padding: 2px 7px; border-radius: 4px;
+    color: var(--accent); font-weight: 500;
+  }
+  .vocab-type {
+    font-size: 11px; padding: 2px 7px; border-radius: 4px;
+    background: var(--accent2-light); color: var(--accent2); font-weight: 500;
+  }
+  .vocab-arrow { color: var(--text-hint); font-size: 14px; }
+
+  /* Vocab detail modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    display: flex; align-items: flex-end; z-index: 100;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal-sheet {
+    background: var(--surface); border-radius: 20px 20px 0 0;
+    padding: 24px; width: 100%;
+    transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .modal-overlay.open .modal-sheet { transform: translateY(0); }
+  .modal-handle { width: 40px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 auto 20px; }
+  .modal-word { font-size: 28px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.5px; }
+  .modal-phonetic { font-size: 14px; color: var(--text-hint); margin-bottom: 16px; }
+  .modal-meaning-label { font-size: 11px; color: var(--text-hint); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .modal-meaning-text { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
+  .modal-example { background: var(--surface2); border-radius: 10px; padding: 14px; font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+  .modal-close { position: absolute; top: 20px; right: 20px; background: var(--surface2); border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; }
+
+  /* Bottom nav */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 480px;
+    background: rgba(247,246,243,0.92); backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    display: flex; padding: 8px 0 16px; z-index: 50;
+  }
+  .bottom-nav-btn {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: none; border: none; cursor: pointer;
+    font-size: 10.5px; color: var(--text-hint); font-family: 'Noto Sans SC', sans-serif;
+    transition: color 0.15s;
+  }
+  .bottom-nav-btn .bnav-icon { font-size: 22px; line-height: 1; }
+  .bottom-nav-btn.active { color: var(--text-primary); }
+
+  /* Speed selector */
+  .speed-panel {
+    position: absolute; bottom: 56px; left: 10px;
+    background: var(--surface); border-radius: 12px; padding: 8px;
+    box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 2px; z-index: 10;
+    opacity: 0; pointer-events: none; transform: translateY(8px); transition: all 0.2s;
+  }
+  .speed-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .speed-opt {
+    padding: 8px 14px; border-radius: 8px; border: none; background: none;
+    font-size: 13.5px; cursor: pointer; text-align: left; transition: background 0.1s;
+    white-space: nowrap;
+  }
+  .speed-opt:hover { background: var(--surface2); }
+  .speed-opt.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+
+  /* Transition */
+  .fade-in { animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════ -->
+<div class="home" id="homePage">
+  <div class="home-header">
+    <div class="home-logo">英语<span>学习站</span></div>
+  </div>
+  <div class="home-subtitle">用你喜欢的视频，学地道英语</div>
+  <div class="episode-list" id="episodeList"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PLAYER PAGE
+═══════════════════════════════════════════ -->
+<div class="player-page" id="playerPage">
+
+  <!-- Video -->
+  <div class="video-wrap" id="videoWrap">
+    <div class="nav-row">
+      <div class="nav-left">
+        <button class="nav-btn" id="backBtn">←</button>
+        <button class="nav-btn" id="prevEpBtn">‹</button>
+        <button class="nav-btn" id="nextEpBtn">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-btn" id="doneBtn">✓</button>
+      </div>
+    </div>
+    <div id="videoContainer"></div>
+    <div class="loop-badge" id="loopBadge">🔁 循环之后暂停 ×</div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="normal" id="tabNormal">正常 ⇄</button>
+    <button class="tab-btn" data-tab="shadow" id="tabShadow">跟读</button>
+    <button class="tab-btn" data-tab="vocab" id="tabVocab">词卡 ≡</button>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-bar-track" id="progressTrack">
+      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+    </div>
+    <div class="progress-times">
+      <span class="progress-time" id="timeCurrent">0:00</span>
+      <span class="progress-time" id="timeDuration">0:00</span>
+    </div>
+  </div>
+
+  <!-- ── NORMAL tab content ── -->
+  <div class="normal-content fade-in" id="tabContentNormal">
+    <div id="subList"></div>
+  </div>
+
+  <!-- ── SHADOW tab content ── -->
+  <div class="shadow-content fade-in" id="tabContentShadow" style="display:none">
+    <div class="shadow-counter">
+      <span id="shadowCounter">1 / 0</span>
+      <span class="shadow-heart">♡</span>
+      <span id="shadowTime" style="margin-left:auto; font-size:12px;">0:00 – 0:00</span>
+    </div>
+    <div class="shadow-main">
+      <div class="shadow-phonetic" id="shadowPhonetic"></div>
+      <div class="shadow-en" id="shadowEn"></div>
+      <div class="shadow-zh" id="shadowZh"></div>
+    </div>
+    <div class="shadow-mic-area">
+      <button class="shadow-mic-btn" id="micBtn">🎙️</button>
+      <div class="shadow-mic-hint" id="micHint">点击录音，跟读这句话</div>
+    </div>
+  </div>
+
+  <!-- ── VOCAB tab content ── -->
+  <div class="vocab-content fade-in" id="tabContentVocab" style="display:none">
+    <div class="vocab-header-bar">
+      <div class="vocab-filters">
+        <button class="vocab-filter-btn active" data-filter="all">列表</button>
+        <button class="vocab-filter-btn" data-filter="word">单词</button>
+        <button class="vocab-filter-btn" data-filter="phrase">短语</button>
+      </div>
+      <span class="vocab-count" id="vocabCount">0 条</span>
+    </div>
+    <div class="vocab-list" id="vocabList"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls" style="position:relative">
+    <div class="speed-panel" id="speedPanel">
+      <button class="speed-opt" data-speed="0.5">0.5x</button>
+      <button class="speed-opt" data-speed="0.75">0.75x</button>
+      <button class="speed-opt active" data-speed="1">1x 正常</button>
+      <button class="speed-opt" data-speed="1.25">1.25x</button>
+      <button class="speed-opt" data-speed="1.5">1.5x</button>
+    </div>
+    <button class="ctrl-btn" id="speedBtn">
+      <span class="ctrl-icon">🐢</span>
+      <span class="ctrl-label" id="speedLabel">1x 倍速</span>
+    </button>
+    <button class="ctrl-btn" id="hideSubBtn">
+      <span class="ctrl-icon">👁️</span>
+      <span class="ctrl-label">隐藏</span>
+    </button>
+    <button class="ctrl-btn" id="prevSentBtn">
+      <span class="ctrl-icon">←</span>
+      <span class="ctrl-label">上一句</span>
+    </button>
+    <button class="ctrl-btn play-btn" id="playBtn">
+      <span class="ctrl-icon">▶</span>
+    </button>
+    <button class="ctrl-btn" id="nextSentBtn">
+      <span class="ctrl-icon">→</span>
+      <span class="ctrl-label">下一句</span>
+    </button>
+    <button class="ctrl-btn" id="repeatBtn">
+      <span class="ctrl-icon">🔁</span>
+      <span class="ctrl-label">重播</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- Vocab detail modal -->
+<div class="modal-overlay" id="vocabModal">
+  <div class="modal-sheet" style="position:relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-word" id="modalWord"></div>
+    <div class="modal-phonetic" id="modalPhonetic"></div>
+    <div class="modal-meaning-label">中文释义</div>
+    <div class="modal-meaning-text" id="modalMeaning"></div>
+    <div class="modal-example" id="modalExample"></div>
+  </div>
+</div>
+
+<!-- Bottom nav (home only) -->
+<nav class="bottom-nav" id="bottomNav">
+  <button class="bottom-nav-btn active" id="bnHome">
+    <span class="bnav-icon">📚</span>目录
+  </button>
+  <button class="bottom-nav-btn" id="bnSearch">
+    <span class="bnav-icon">🔍</span>搜索
+  </button>
+  <button class="bottom-nav-btn" id="bnFav">
+    <span class="bnav-icon">🔖</span>收藏
+  </button>
+  <button class="bottom-nav-btn" id="bnMe">
+    <span class="bnav-icon">👤</span>我的
+  </button>
+</nav>
+
+<script>
+// ── State ──────────────────────────────────────
+let data = null;
+let currentEpIdx = 0;
+let currentSubIdx = 0;
+let currentTab = 'normal';
+let isPlaying = false;
+let isMuted = false;
+let loopEnabled = true;
+let speed = 1;
+let subHidden = false;
+let mediaRecorder = null;
+let isRecording = false;
+let vocabFilter = 'all';
+let videoEl = null;
+let progressInterval = null;
+
+const kwColors = ['kw-pink', 'kw-yellow', 'kw-purple'];
+
+// ── Load data ──────────────────────────────────
+async function loadData() {
+  try {
+    const res = await fetch('data.json');
+    data = await res.json();
+  } catch(e) {
+    // Fallback demo data if fetch fails (e.g. file:// protocol)
+    data = {
+      episodes: [{
+        id: 1, title: "第 1 期", topic: "生活", accent: "美国", difficulty: 2,
+        description: "请把 data.json 放在同一文件夹内，并通过本地服务器打开（或用 VS Code Live Server）。",
+        videoFile: "", thumbnail: "", duration: "1:20", date: "2025-05-17",
+        subtitles: [
+          { id:1, start:0, end:2, en:"We just got back to the hotel after getting my hair done.", zh:"我们刚做完头发回到酒店。", phonetic:"/wiː dʒʌst ɡɒt bæk tə ðə hoʊtəl æftər ˈɡetɪŋ maɪ heər dʌn./", keywords:["got back to"], vocab:[] },
+          { id:2, start:2, end:5, en:"I got my whole head bleached.", zh:"我把整头头发都漂白了。", phonetic:"/aɪ ɡɒt maɪ hoʊl hed bliːtʃt./", keywords:["bleached"], vocab:["bleached"] },
+          { id:3, start:5, end:7, en:"That was an impulse decision.", zh:"这完全是个冲动决定。", phonetic:"/ðæt wɒz ən ˈɪmpʌls dɪˈsɪʒən./", keywords:["impulse decision"], vocab:["impulse"] },
+          { id:4, start:7, end:11, en:"I originally just wanted to get some highlights.", zh:"我本来只是想挑染一下。", phonetic:"/aɪ əˈrɪdʒɪnəli dʒʌst ˈwɒntɪd tə ɡet sʌm ˈhaɪlaɪts./", keywords:["highlights"], vocab:[] },
+          { id:5, start:11, end:15, en:"But then I just decided to go all out.", zh:"但后来我决定直接一步到位。", phonetic:"/bʌt ðen aɪ dʒʌst dɪˈsaɪdɪd tə ɡoʊ ɔːl aʊt./", keywords:["go all out"], vocab:[] }
+        ],
+        wordList: [
+          { word:"impulse", level:"六级", type:"单词", meaning:"冲动；突然的念头" },
+          { word:"bleached", level:"考研", type:"单词", meaning:"漂白；（头发）脱色" },
+          { word:"highlights", level:"雅思", type:"单词", meaning:"挑染；高亮部分" },
+          { word:"go all out", level:"口语", type:"短语", meaning:"全力以赴；彻底做某件事" }
+        ]
+      }]
+    };
+  }
+  renderHome();
+}
+
+// ── Home ───────────────────────────────────────
+function renderHome() {
+  const list = document.getElementById('episodeList');
+  list.innerHTML = '';
+  data.episodes.forEach((ep, idx) => {
+    const stars = Array.from({length:5}, (_,i) =>
+      `<span class="star ${i < ep.difficulty ? 'on' : 'off'}">★</span>`).join('');
+    const thumb = ep.thumbnail
+      ? `<img src="${ep.thumbnail}" alt="">`
+      : `<div class="ep-thumbnail-placeholder">🎬 ${ep.title}</div>`;
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+    card.innerHTML = `
+      <div class="ep-thumbnail">
+        ${thumb}
+        <div class="ep-duration">${ep.duration}</div>
+        <div class="ep-author">@你的博主名</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-top">
+          <div class="ep-number">${ep.title}</div>
+          <div class="ep-stars">${stars}</div>
+        </div>
+        <div class="ep-tags">
+          <span class="ep-tag">${ep.topic}</span>
+          <span class="ep-accent">口音：${ep.accent}</span>
+        </div>
+        <div class="ep-desc">${ep.description}</div>
+        <div class="ep-meta">
+          <div class="ep-stats">
+            <span class="ep-stat">词汇量：<strong>${ep.wordList.length}</strong></span>
+            <span class="ep-stat"><strong>${ep.subtitles.length}</strong> 条字幕</span>
+          </div>
+          <span class="ep-date">${ep.date}</span>
+        </div>
+      </div>`;
+    card.onclick = () => openEpisode(idx);
+    list.appendChild(card);
+  });
+}
+
+// ── Open episode ───────────────────────────────
+function openEpisode(idx) {
+  currentEpIdx = idx;
+  currentSubIdx = 0;
+  document.getElementById('homePage').classList.add('hidden');
+  document.getElementById('playerPage').classList.add('active');
+  document.getElementById('bottomNav').style.display = 'none';
+  loadEpisode();
+}
+
+function closeEpisode() {
+  stopVideo();
+  document.getElementById('homePage').classList.remove('hidden');
+  document.getElementById('playerPage').classList.remove('active');
+  document.getElementById('bottomNav').style.display = 'flex';
+}
+
+function loadEpisode() {
+  const ep = data.episodes[currentEpIdx];
+
+  // Video
+  const container = document.getElementById('videoContainer');
+  container.innerHTML = '';
+  videoEl = null;
+
+  if (ep.onedriveEmbed) {
+    // OneDrive嵌入模式
+    ytPlayer = null; ytReady = false;
+    const iframe = document.createElement('iframe');
+    iframe.src = ep.onedriveEmbed;
+    iframe.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe);
+    document.getElementById('timeDuration').textContent = ep.duration || '–';
+    startManualTimer();
+  } else if (ep.biliId) {
+    ytPlayer = null; ytReady = false;
+    const aid = ep.biliId.replace('av','');
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://player.bilibili.com/player.html?aid=${aid}&page=1&high_quality=1&danmaku=0&as_wide=1`;
+    iframe.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+    iframe.allowFullscreen = true;
+    iframe.setAttribute('sandbox','allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups');
+    container.appendChild(iframe);
+    document.getElementById('timeDuration').textContent = ep.duration || '–';
+    startManualTimer();
+  } else if (ep.youtubeId) {
+    // YouTube嵌入模式
+    ytPlayer = null;
+    ytReady = false;
+    ytStartSec = ep.youtubeStart || 0;
+    ytEndSec = ep.youtubeEnd || null;
+
+    const iframeId = 'yt-iframe-' + ep.id;
+    const div = document.createElement('div');
+    div.id = iframeId;
+    div.style.cssText = 'width:100%;height:100%;';
+    container.appendChild(div);
+
+    document.getElementById('timeDuration').textContent = ytEndSec ? formatTime(ytEndSec - ytStartSec) : '–';
+
+    if (window.YT && window.YT.Player) {
+      createYTPlayer(iframeId, ep);
+    } else {
+      window._pendingYT = { iframeId, ep };
+      if (!document.getElementById('yt-api-script')) {
+        const s = document.createElement('script');
+        s.id = 'yt-api-script';
+        s.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(s);
+      }
+    }
+  } else if (ep.videoFile) {
+    videoEl = document.createElement('video');
+    videoEl.src = ep.videoFile;
+    videoEl.style.cssText = 'width:100%;height:100%;display:block;';
+    videoEl.playbackRate = speed;
+    videoEl.addEventListener('timeupdate', onTimeUpdate);
+    videoEl.addEventListener('ended', onVideoEnded);
+    videoEl.addEventListener('play', () => { isPlaying = true; updatePlayBtn(); });
+    videoEl.addEventListener('pause', () => { isPlaying = false; updatePlayBtn(); });
+    videoEl.addEventListener('loadedmetadata', () => {
+      document.getElementById('timeDuration').textContent = formatTime(videoEl.duration);
+    });
+    container.appendChild(videoEl);
+  } else {
+    container.innerHTML = `<div class="video-placeholder"><span>📽️</span><span>请在 data.json 中设置视频</span></div>`;
+  }
+
+  renderNormal();
+  renderShadow();
+  renderVocab();
+  switchTab('normal');
+}
+
+// ── Manual timer (for Bilibili) ─────────────────
+let manualTimer = null, manualTime = 0, manualDur = 0;
+
+function startManualTimer() {
+  if (manualTimer) clearInterval(manualTimer);
+  manualTime = 0;
+  const ep = data.episodes[currentEpIdx];
+  // 从duration字符串解析总秒数
+  const parts = (ep.duration || '0:00').split(':');
+  manualDur = parseInt(parts[0])*60 + parseInt(parts[1] || 0);
+  updateManualProgress();
+}
+
+function updateManualProgress() {
+  const pct = manualDur > 0 ? Math.min(manualTime / manualDur, 1) : 0;
+  document.getElementById('progressFill').style.width = (pct*100)+'%';
+  document.getElementById('timeCurrent').textContent = formatTime(manualTime);
+}
+
+function tickManualTimer() {
+  if (!isPlaying) return;
+  manualTime += 0.15;
+  if (manualTime > manualDur) manualTime = manualDur;
+  updateManualProgress();
+  // 自动高亮字幕
+  const ep = data.episodes[currentEpIdx];
+  const idx = ep.subtitles.findIndex(s => manualTime >= s.start && manualTime < s.end);
+  if (idx !== -1 && idx !== currentSubIdx) {
+    currentSubIdx = idx;
+    highlightActiveSub();
+    if (currentTab === 'shadow') renderShadow();
+  }
+}
+
+// ── YouTube Player ──────────────────────────────
+let ytPlayer = null, ytReady = false, ytStartSec = 0, ytEndSec = null, ytInterval = null;
+
+function createYTPlayer(iframeId, ep) {
+  ytPlayer = new YT.Player(iframeId, {
+    videoId: ep.youtubeId,
+    playerVars: {
+      start: ep.youtubeStart || 0,
+      controls: 0, rel: 0, modestbranding: 1,
+      playsinline: 1, enablejsapi: 1
+    },
+    events: {
+      onReady: () => {
+        ytReady = true;
+        ytPlayer.setPlaybackRate(speed);
+        startYTTracking();
+      },
+      onStateChange: (e) => {
+        if (e.data === YT.PlayerState.PLAYING) { isPlaying = true; updatePlayBtn(); }
+        if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) { isPlaying = false; updatePlayBtn(); }
+      }
+    }
+  });
+}
+
+window.onYouTubeIframeAPIReady = function() {
+  if (window._pendingYT) {
+    const { iframeId, ep } = window._pendingYT;
+    window._pendingYT = null;
+    createYTPlayer(iframeId, ep);
+  }
+};
+
+function startYTTracking() {
+  if (ytInterval) clearInterval(ytInterval);
+  ytInterval = setInterval(() => {
+    if (!ytPlayer || !ytReady) return;
+    const rawT = ytPlayer.getCurrentTime();
+    const t = rawT - ytStartSec; // 相对时间
+    const dur = ytEndSec ? ytEndSec - ytStartSec : (ytPlayer.getDuration() - ytStartSec);
+    // 超过结束时间则暂停回到开头
+    if (ytEndSec && rawT >= ytEndSec) {
+      ytPlayer.seekTo(ytStartSec);
+      ytPlayer.pauseVideo();
+      isPlaying = false; updatePlayBtn();
+      return;
+    }
+    const pct = dur > 0 ? Math.min(t / dur, 1) : 0;
+    document.getElementById('progressFill').style.width = (pct * 100) + '%';
+    document.getElementById('timeCurrent').textContent = formatTime(Math.max(0, t));
+    // 自动高亮字幕
+    const ep = data.episodes[currentEpIdx];
+    const idx = ep.subtitles.findIndex(s => t >= s.start && t < s.end);
+    if (idx !== -1 && idx !== currentSubIdx) {
+      currentSubIdx = idx;
+      highlightActiveSub();
+      if (currentTab === 'shadow') renderShadow();
+    }
+    // 句子循环
+    if (loopEnabled && currentTab !== 'normal') {
+      const sub = ep.subtitles[currentSubIdx];
+      if (sub && t >= sub.end - 0.15) ytSeekTo(sub.start);
+    }
+  }, 150);
+}
+
+// ── Video controls ─────────────────────────────
+function ytSeekTo(t) {
+  if (ytPlayer && ytReady) ytPlayer.seekTo(ytStartSec + t, true);
+}
+function playVideo() {
+  if (videoEl) videoEl.play().catch(()=>{});
+  else if (ytPlayer && ytReady) ytPlayer.playVideo();
+  else {
+    // B站手动模式
+    isPlaying = true; updatePlayBtn();
+    if (manualTimer) clearInterval(manualTimer);
+    manualTimer = setInterval(tickManualTimer, 150);
+  }
+}
+function pauseVideo() {
+  if (videoEl) videoEl.pause();
+  else if (ytPlayer && ytReady) ytPlayer.pauseVideo();
+  else {
+    isPlaying = false; updatePlayBtn();
+    if (manualTimer) { clearInterval(manualTimer); manualTimer = null; }
+  }
+}
+function stopVideo() {
+  if (videoEl) { videoEl.pause(); videoEl.currentTime = 0; }
+  else if (ytPlayer && ytReady) { ytPlayer.pauseVideo(); ytPlayer.seekTo(ytStartSec, true); }
+  else { if (manualTimer) { clearInterval(manualTimer); manualTimer = null; } manualTime = 0; updateManualProgress(); }
+  if (ytInterval) { clearInterval(ytInterval); ytInterval = null; }
+  isPlaying = false;
+}
+function seekTo(t) {
+  if (videoEl) videoEl.currentTime = t;
+  else if (ytPlayer && ytReady) ytSeekTo(t);
+  else { manualTime = t; updateManualProgress(); }
+}
+function togglePlay() {
+  if (isPlaying) pauseVideo(); else playVideo();
+}
+function updatePlayBtn() {
+  document.querySelector('#playBtn .ctrl-icon').textContent = isPlaying ? '⏸' : '▶';
+}
+
+function onTimeUpdate() {
+  if (!videoEl) return;
+  const t = videoEl.currentTime, dur = videoEl.duration || 1;
+  document.getElementById('progressFill').style.width = (t/dur*100) + '%';
+  document.getElementById('timeCurrent').textContent = formatTime(t);
+  // Auto highlight active subtitle
+  const ep = data.episodes[currentEpIdx];
+  const idx = ep.subtitles.findIndex(s => t >= s.start && t < s.end);
+  if (idx !== -1 && idx !== currentSubIdx) {
+    currentSubIdx = idx;
+    highlightActiveSub();
+    if (currentTab === 'shadow') renderShadow();
+  }
+  // Loop sentence
+  if (loopEnabled && currentTab !== 'normal') {
+    const sub = ep.subtitles[currentSubIdx];
+    if (sub && t >= sub.end - 0.1) seekTo(sub.start);
+  }
+}
+
+function onVideoEnded() { isPlaying = false; updatePlayBtn(); }
+
+function simulateProgress() {
+  // For demo without video file
+}
+
+function prevSentence() {
+  const ep = data.episodes[currentEpIdx];
+  if (currentSubIdx > 0) {
+    currentSubIdx--;
+    seekTo(ep.subtitles[currentSubIdx].start);
+    highlightActiveSub();
+    if (currentTab === 'shadow') renderShadow();
+  }
+}
+function nextSentence() {
+  const ep = data.episodes[currentEpIdx];
+  if (currentSubIdx < ep.subtitles.length - 1) {
+    currentSubIdx++;
+    seekTo(ep.subtitles[currentSubIdx].start);
+    highlightActiveSub();
+    if (currentTab === 'shadow') renderShadow();
+  }
+}
+function replaySentence() {
+  const ep = data.episodes[currentEpIdx];
+  seekTo(ep.subtitles[currentSubIdx].start);
+  playVideo();
+}
+
+// ── Progress bar ───────────────────────────────
+document.getElementById('progressTrack').addEventListener('click', function(e) {
+  const rect = this.getBoundingClientRect();
+  const ratio = (e.clientX - rect.left) / rect.width;
+  if (videoEl) {
+    videoEl.currentTime = ratio * videoEl.duration;
+  } else if (ytPlayer && ytReady) {
+    const dur = ytEndSec ? ytEndSec - ytStartSec : ytPlayer.getDuration() - ytStartSec;
+    ytSeekTo(ratio * dur);
+  }
+});
+
+// ── Subtitle helpers ───────────────────────────
+function highlightText(text, keywords) {
+  if (!keywords || !keywords.length) return text;
+  let result = text;
+  keywords.forEach((kw, i) => {
+    const color = kwColors[i % kwColors.length];
+    const re = new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+    result = result.replace(re, `<span class="${color}">$1</span>`);
+  });
+  return result;
+}
+
+// ── Normal mode ────────────────────────────────
+function renderNormal() {
+  const ep = data.episodes[currentEpIdx];
+  const list = document.getElementById('subList');
+  list.innerHTML = '';
+  ep.subtitles.forEach((sub, idx) => {
+    const div = document.createElement('div');
+    div.className = 'sub-item' + (idx === currentSubIdx ? ' active' : '');
+    div.id = `sub-${idx}`;
+    const enText = subHidden ? '<span style="filter:blur(4px)">'+sub.en+'</span>' : highlightText(sub.en, sub.keywords);
+    div.innerHTML = `
+      <div class="sub-en">${enText}</div>
+      <div class="sub-zh">${sub.zh}</div>
+      <div class="sub-footer">
+        <span class="sub-num">${sub.id} &nbsp; ${formatTime(sub.start)} – ${formatTime(sub.end)}</span>
+        <div class="sub-actions">
+          <button class="sub-action" onclick="playFromSub(${idx})">▷</button>
+          <button class="sub-action" onclick="copyText('${sub.en.replace(/'/g,"\\'")}')">⎘</button>
+          <button class="sub-action" onclick="toggleFav(${idx}, this)">♡</button>
+          <button class="sub-action">✎</button>
+        </div>
+      </div>`;
+    div.addEventListener('click', (e) => {
+      if (e.target.classList.contains('sub-action')) return;
+      currentSubIdx = idx;
+      seekTo(sub.start); playVideo();
+      highlightActiveSub();
+    });
+    list.appendChild(div);
+  });
+}
+
+function highlightActiveSub() {
+  document.querySelectorAll('.sub-item').forEach((el, i) => {
+    el.classList.toggle('active', i === currentSubIdx);
+  });
+  const el = document.getElementById(`sub-${currentSubIdx}`);
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function playFromSub(idx) {
+  currentSubIdx = idx;
+  seekTo(data.episodes[currentEpIdx].subtitles[idx].start);
+  playVideo();
+  highlightActiveSub();
+}
+
+function copyText(text) {
+  navigator.clipboard?.writeText(text).catch(()=>{});
+}
+function toggleFav(idx, btn) {
+  btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+  btn.style.color = btn.textContent === '♥' ? '#e76f51' : '';
+}
+
+// ── Shadow mode ────────────────────────────────
+function renderShadow() {
+  const ep = data.episodes[currentEpIdx];
+  const sub = ep.subtitles[currentSubIdx];
+  if (!sub) return;
+  document.getElementById('shadowCounter').textContent = `${currentSubIdx+1} / ${ep.subtitles.length}`;
+  document.getElementById('shadowTime').textContent = `${formatTime(sub.start)} – ${formatTime(sub.end)}`;
+  document.getElementById('shadowPhonetic').textContent = sub.phonetic || '';
+  document.getElementById('shadowEn').innerHTML = highlightText(sub.en, sub.keywords);
+  document.getElementById('shadowZh').textContent = sub.zh;
+}
+
+// Mic button
+document.getElementById('micBtn').addEventListener('click', async function() {
+  if (isRecording) {
+    if (mediaRecorder) mediaRecorder.stop();
+    isRecording = false;
+    this.classList.remove('recording');
+    document.getElementById('micHint').textContent = '点击录音，跟读这句话';
+    return;
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.start();
+    isRecording = true;
+    this.classList.add('recording');
+    document.getElementById('micHint').textContent = '录音中…再次点击停止';
+    mediaRecorder.addEventListener('stop', () => {
+      stream.getTracks().forEach(t => t.stop());
+    });
+  } catch(e) {
+    document.getElementById('micHint').textContent = '⚠️ 需要麦克风权限';
+  }
+});
+
+// ── Vocab mode ─────────────────────────────────
+function renderVocab() {
+  const ep = data.episodes[currentEpIdx];
+  const words = ep.wordList.filter(w => {
+    if (vocabFilter === 'all') return true;
+    if (vocabFilter === 'word') return w.type === '单词';
+    if (vocabFilter === 'phrase') return w.type === '短语';
+    return true;
+  });
+  document.getElementById('vocabCount').textContent = words.length + ' 条';
+  const list = document.getElementById('vocabList');
+  list.innerHTML = '';
+  words.forEach((w, i) => {
+    const div = document.createElement('div');
+    div.className = 'vocab-item';
+    div.innerHTML = `
+      <span class="vocab-num">${i+1}</span>
+      <div style="flex:1">
+        <div class="vocab-word">${w.word}</div>
+        <div class="vocab-meaning">${w.meaning}</div>
+      </div>
+      <div class="vocab-badges">
+        <span class="vocab-level">${w.level}</span>
+        <span class="vocab-type">${w.type}</span>
+      </div>
+      <span class="vocab-arrow">›</span>`;
+    div.onclick = () => openVocabModal(w);
+    list.appendChild(div);
+  });
+}
+
+function openVocabModal(w) {
+  document.getElementById('modalWord').textContent = w.word;
+  document.getElementById('modalPhonetic').textContent = w.phonetic || '';
+  document.getElementById('modalMeaning').textContent = w.meaning;
+  document.getElementById('modalExample').textContent = w.example || '（暂无例句，可在 data.json 中添加 example 字段）';
+  document.getElementById('vocabModal').classList.add('open');
+}
+document.getElementById('modalClose').onclick = () =>
+  document.getElementById('vocabModal').classList.remove('open');
+document.getElementById('vocabModal').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+});
+
+// Vocab filters
+document.querySelectorAll('.vocab-filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.vocab-filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    vocabFilter = this.dataset.filter;
+    renderVocab();
+  });
+});
+
+// ── Tabs ───────────────────────────────────────
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('tabContentNormal').style.display = tab === 'normal' ? 'block' : 'none';
+  document.getElementById('tabContentShadow').style.display = tab === 'shadow' ? 'flex' : 'none';
+  document.getElementById('tabContentVocab').style.display = tab === 'vocab' ? 'block' : 'none';
+  if (tab === 'shadow') {
+    renderShadow();
+    // In shadow mode, replay current sentence
+    const ep = data.episodes[currentEpIdx];
+    const sub = ep.subtitles[currentSubIdx];
+    if (sub) { seekTo(sub.start); playVideo(); }
+  }
+}
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+// ── Controls ───────────────────────────────────
+document.getElementById('playBtn').onclick = togglePlay;
+document.getElementById('prevSentBtn').onclick = prevSentence;
+document.getElementById('nextSentBtn').onclick = nextSentence;
+document.getElementById('repeatBtn').onclick = replaySentence;
+document.getElementById('backBtn').onclick = closeEpisode;
+document.getElementById('doneBtn').onclick = closeEpisode;
+document.getElementById('prevEpBtn').onclick = () => {
+  if (currentEpIdx > 0) { currentEpIdx--; loadEpisode(); }
+};
+document.getElementById('nextEpBtn').onclick = () => {
+  if (currentEpIdx < data.episodes.length - 1) { currentEpIdx++; loadEpisode(); }
+};
+
+// Hide subtitles
+document.getElementById('hideSubBtn').addEventListener('click', function() {
+  subHidden = !subHidden;
+  document.querySelector('#hideSubBtn .ctrl-icon').textContent = subHidden ? '🙈' : '👁️';
+  renderNormal();
+});
+
+// Loop badge
+document.getElementById('loopBadge').onclick = () => {
+  loopEnabled = !loopEnabled;
+  document.getElementById('loopBadge').style.opacity = loopEnabled ? '1' : '0.4';
+};
+
+// Speed
+document.getElementById('speedBtn').onclick = function(e) {
+  e.stopPropagation();
+  document.getElementById('speedPanel').classList.toggle('open');
+};
+document.querySelectorAll('.speed-opt').forEach(btn => {
+  btn.onclick = function() {
+    speed = parseFloat(this.dataset.speed);
+    if (videoEl) videoEl.playbackRate = speed;
+    if (ytPlayer && ytReady) ytPlayer.setPlaybackRate(speed);
+    document.querySelectorAll('.speed-opt').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('speedLabel').textContent = speed + 'x 倍速';
+    document.querySelector('#speedBtn .ctrl-icon').textContent = speed < 1 ? '🐢' : speed > 1 ? '🐇' : '🐢';
+    document.getElementById('speedPanel').classList.remove('open');
+  };
+});
+document.addEventListener('click', () => document.getElementById('speedPanel').classList.remove('open'));
+
+// ── Utils ──────────────────────────────────────
+function formatTime(s) {
+  if (!s && s !== 0) return '0:00';
+  const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+  return m + ':' + String(sec).padStart(2,'0');
+}
+
+// ── Init ───────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>
