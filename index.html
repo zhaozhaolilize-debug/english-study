@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>我的赵赵英语学习站</title>
+<title>赵赵英语学习站</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -397,7 +397,7 @@
 ═══════════════════════════════════════════ -->
 <div class="home" id="homePage">
   <div class="home-header">
-    <div class="home-logo">英语<span>学习站</span></div>
+    <div class="home-logo">赵赵<span>英语学习站</span></div>
   </div>
   <div class="home-subtitle">用你喜欢的视频，学地道英语</div>
   <div class="episode-list" id="episodeList"></div>
@@ -609,7 +609,7 @@ function renderHome() {
       <div class="ep-thumbnail">
         ${thumb}
         <div class="ep-duration">${ep.duration}</div>
-        <div class="ep-author">@你的博主名</div>
+        <div class="ep-author">@Jay</div>
       </div>
       <div class="ep-body">
         <div class="ep-top">
@@ -708,6 +708,11 @@ function loadEpisode() {
     }
   } else if (ep.videoFile) {
     videoEl = document.createElement('video');
+    videoEl.setAttribute('playsinline', '');
+    videoEl.setAttribute('webkit-playsinline', '');
+    videoEl.setAttribute('x5-playsinline', '');
+    videoEl.setAttribute('x5-video-player-type', 'h5');
+    videoEl.controls = true;
     videoEl.src = ep.videoFile;
     videoEl.style.cssText = 'width:100%;height:100%;display:block;';
     videoEl.playbackRate = speed;
