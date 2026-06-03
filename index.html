@@ -636,28 +636,47 @@ document.getElementById('micBtn').addEventListener('click', async function() {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const chunks = [];
     mediaRecorder = new MediaRecorder(stream);
+    // 录音开始：暂停视频
+    pauseVideo();
     mediaRecorder.start();
     isRecording = true;
     this.classList.add('recording');
     this.textContent = '⏹️';
     document.getElementById('micHint').textContent = '录音中…再次点击停止';
-    mediaRecorder.addEventListener('dataavailable', e => chunks.push(e.data));
+    mediaRecorder.addEventListener('dataavailable', e => { if (e.data.size > 0) chunks.push(e.data); });
     mediaRecorder.addEventListener('stop', () => {
       stream.getTracks().forEach(t => t.stop());
-      shadowRecBlob = new Blob(chunks, { type:'audio/webm' });
+      // 尝试多种格式兼容iOS
+      const mimeType = MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4' :
+                       MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : 'audio/ogg';
+      shadowRecBlob = new Blob(chunks, { type: mimeType });
       shadowRecUrl = URL.createObjectURL(shadowRecBlob);
       document.getElementById('shadowRecActions').style.display = 'flex';
       document.getElementById('micHint').textContent = '录音完成，点击播放对比';
       document.getElementById('micBtn').textContent = '🎙️';
       isRecording = false;
+      // 录音结束：重新播放视频
+      const ep = data.episodes[currentEpIdx];
+      const sub = ep.subtitles[currentSubIdx];
+      if (sub) { seekTo(sub.start); playVideo(); }
     });
   } catch(e) {
     document.getElementById('micHint').textContent = '⚠️ 需要麦克风权限';
   }
 });
 
-document.getElementById('shadowPlayRec').onclick = () => {
-  if (shadowRecUrl) new Audio(shadowRecUrl).play().catch(()=>{});
+document.getElementById('shadowPlayRec').onclick = function() {
+  if (!shadowRecUrl) return;
+  // 手机端需要在用户交互中创建并播放
+  const audio = new Audio();
+  audio.src = shadowRecUrl;
+  audio.play().catch(err => {
+    console.log('播放失败:', err);
+    // 尝试另一种方式
+    const a = document.createElement('a');
+    a.href = shadowRecUrl;
+    a.click();
+  });
 };
 document.getElementById('shadowDelRec').onclick = () => {
   shadowRecBlob = null; shadowRecUrl = null;
