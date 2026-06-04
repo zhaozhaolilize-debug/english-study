@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>赵赵英语学习站</title>
-
+<link rel="preconnect" href="https://fonts.loli.net">
 <link href="https://fonts.loli.net/css2?family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -435,9 +435,14 @@ function onTimeUpdate() {
     if (currentTab === 'shadow') renderShadow();
     if (currentTab === 'dictation') highlightDictItem();
   }
-  if (loopEnabled && (currentTab === 'shadow' || currentTab === 'dictation')) {
+  if (loopEnabled && currentTab === 'shadow') {
     const sub = ep.subtitles[currentSubIdx];
     if (sub && t >= sub.end - 0.1) seekTo(sub.start);
+  }
+  // 听写模式：播放到句末自动暂停
+  if (currentTab === 'dictation') {
+    const sub = ep.subtitles[currentSubIdx];
+    if (sub && t >= sub.end - 0.1) pauseVideo();
   }
 }
 
@@ -449,11 +454,23 @@ document.getElementById('progressTrack').addEventListener('click', function(e) {
 
 function prevSentence() {
   const ep = data.episodes[currentEpIdx];
-  if (currentSubIdx > 0) { currentSubIdx--; seekTo(ep.subtitles[currentSubIdx].start); highlightActiveSub(); if (currentTab==='shadow') renderShadow(); if (currentTab==='dictation') highlightDictItem(); }
+  if (currentSubIdx > 0) {
+    currentSubIdx--;
+    seekTo(ep.subtitles[currentSubIdx].start);
+    highlightActiveSub();
+    if (currentTab==='shadow') renderShadow();
+    if (currentTab==='dictation') { highlightDictItem(); pauseVideo(); }
+  }
 }
 function nextSentence() {
   const ep = data.episodes[currentEpIdx];
-  if (currentSubIdx < ep.subtitles.length-1) { currentSubIdx++; seekTo(ep.subtitles[currentSubIdx].start); highlightActiveSub(); if (currentTab==='shadow') renderShadow(); if (currentTab==='dictation') highlightDictItem(); }
+  if (currentSubIdx < ep.subtitles.length-1) {
+    currentSubIdx++;
+    seekTo(ep.subtitles[currentSubIdx].start);
+    highlightActiveSub();
+    if (currentTab==='shadow') renderShadow();
+    if (currentTab==='dictation') { highlightDictItem(); pauseVideo(); }
+  }
 }
 function replaySentence() { const ep = data.episodes[currentEpIdx]; seekTo(ep.subtitles[currentSubIdx].start); playVideo(); }
 
@@ -667,15 +684,18 @@ document.getElementById('micBtn').addEventListener('click', async function() {
 
 document.getElementById('shadowPlayRec').onclick = function() {
   if (!shadowRecUrl) return;
-  // 手机端需要在用户交互中创建并播放
+  // 暂停视频
+  pauseVideo();
   const audio = new Audio();
   audio.src = shadowRecUrl;
   audio.play().catch(err => {
     console.log('播放失败:', err);
-    // 尝试另一种方式
-    const a = document.createElement('a');
-    a.href = shadowRecUrl;
-    a.click();
+  });
+  // 播放完后恢复视频
+  audio.addEventListener('ended', () => {
+    const ep = data.episodes[currentEpIdx];
+    const sub = ep.subtitles[currentSubIdx];
+    if (sub) { seekTo(sub.start); playVideo(); }
   });
 };
 document.getElementById('shadowDelRec').onclick = () => {
@@ -735,7 +755,7 @@ function switchTab(tab) {
   document.getElementById('tabContentDictation').style.display = tab==='dictation' ? 'block' : 'none';
   document.getElementById('tabContentShadow').style.display = tab==='shadow' ? 'flex' : 'none';
   document.getElementById('tabContentVocab').style.display = tab==='vocab' ? 'block' : 'none';
-  if (videoEl) videoEl.muted = (tab==='shadow');
+  if (videoEl) videoEl.muted = false;
   if (tab==='shadow') {
     renderShadow();
     const ep = data.episodes[currentEpIdx];
@@ -745,7 +765,7 @@ function switchTab(tab) {
   if (tab==='dictation') {
     const ep = data.episodes[currentEpIdx];
     const sub = ep.subtitles[currentSubIdx];
-    if (sub) { seekTo(sub.start); playVideo(); }
+    if (sub) { seekTo(sub.start); pauseVideo(); }
   }
 }
 document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
