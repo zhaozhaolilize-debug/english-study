@@ -97,14 +97,15 @@
       "description": "A day with dad — 和爸爸一起出门！跟着可爱的动画，学习自然拼读中的 a 发音。适合零基础和小朋友一起学习。",
       "videoFile": "videos/ep2.mp4",
       "thumbnail": "videos/ep2.png",
-      "duration": "0:13",
-"date": "2026-06-08","author": "@zhaozhao",
+      "duration": "0:32",
+      "date": "2026-06-08","author": "@zhaozhao",
       "subtitles": [
-        {"id":1,"start":1.633,"end":4.2,"en":"that's my hat and my bag","zh":"那是我的帽子和我的包","phonetic":"/ðæts maɪ hæt ænd maɪ bæɡ/","keywords":["that","bag"],"vocab":["hat","bag"]},
-        {"id":2,"start":4.5,"end":5.866,"en":"and we have a map","zh":"我们还有一张地图","phonetic":"/ænd wiː hæv ə mæp/","keywords":["map"],"vocab":["map"]},
-        {"id":3,"start":7.433,"end":8.933,"en":"this is my dad","zh":"这是我的爸爸","phonetic":"/ðɪs ɪz maɪ dæd/","keywords":["dad"],"vocab":["dad"]},
-        {"id":4,"start":9.066,"end":12.5,"en":"he has a hat a bag and a map","zh":"他有一顶帽子、一个包和一张地图","phonetic":"/hiː hæz ə hæt ə bæɡ ænd ə mæp/","keywords":["hat","bag","map"],"vocab":[]},
-        {"id":5,"start":13.1,"end":13.733,"en":"hahaha","zh":"哈哈哈","phonetic":"/hɑːhɑːhɑː/","keywords":[],"vocab":[]}
+  {"id":1,"start":3.1,"end":6.033,"en":"this is my dad he has a hat","zh":"这是我的爸爸，他有一顶帽子","phonetic":"","keywords":["dad","hat"],"vocab":["dad","hat"]},
+  {"id":2,"start":6.033,"end":7.9,"en":"a bag and a map","zh":"一个包和一张地图","phonetic":"","keywords":["bag","map"],"vocab":["bag","map"]},
+  {"id":3,"start":12.2,"end":15.633,"en":"that is my girl she has a bat and a cap","zh":"那是我的女儿，她有一根球棒和一顶帽子","phonetic":"","keywords":["girl","bat","cap"],"vocab":["bat","cap"]},
+  {"id":4,"start":20.333,"end":23.533,"en":"at the house we use the tap","zh":"在家里我们用水龙头","phonetic":"","keywords":["tap"],"vocab":["tap"]},
+  {"id":5,"start":24.5,"end":26.8,"en":"then we take a nap","zh":"然后我们小睡一会儿","phonetic":"","keywords":["nap"],"vocab":["nap"]}
+],
       ],
       "wordList": [
         {"word":"hat","level":"初级","type":"单词","meaning":"帽子","phonetic":"/hæt/","example":"That's my hat."},
