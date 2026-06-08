@@ -7,762 +7,114 @@
       "accent": "英国",
       "difficulty": 2,
       "description": "在英国，时间的表达方式和其他地方很不一样！六点半不说 six thirty，而是 half six。这期视频教你地道的英式时间说法。",
-      "videoFile": "https://pub-77a11eb0a6c14256845b74a571601f75.r2.dev/ep1.mp4",
-      "thumbnail": "https://pub-77a11eb0a6c14256845b74a571601f75.r2.dev/ep1.jpg",
+      "videoFile": "videos/ep1.mp4",
+      "thumbnail": "videos/ep1.jpg",
       "duration": "2:43",
       "date": "2026-06-03",
       "subtitles": [
-        {
-          "id": 1,
-          "start": 0.033,
-          "end": 2.566,
-          "en": "in England we don't say",
-          "zh": "在英国我们不说",
-          "phonetic": "",
-          "keywords": [
-            "in England"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 2,
-          "start": 2.566,
-          "end": 3.866,
-          "en": "“six thirty”",
-          "zh": "六点半",
-          "phonetic": "",
-          "keywords": [
-            "six thirty"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 3,
-          "start": 4.433,
-          "end": 6.7,
-          "en": "we say half six",
-          "zh": "我们说六点半",
-          "phonetic": "",
-          "keywords": [
-            "half six"
-          ],
-          "vocab": [
-            "half six"
-          ]
-        },
-        {
-          "id": 4,
-          "start": 8.933,
-          "end": 9.866,
-          "en": "wait a minute",
-          "zh": "等一下",
-          "phonetic": "",
-          "keywords": [
-            "wait a minute"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 5,
-          "start": 10.133,
-          "end": 11.0,
-          "en": "we say",
-          "zh": "我们说",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 6,
-          "start": 11.7,
-          "end": 12.5,
-          "en": "one sec",
-          "zh": "一秒钟",
-          "phonetic": "",
-          "keywords": [
-            "one sec"
-          ],
-          "vocab": [
-            "one sec"
-          ]
-        },
-        {
-          "id": 7,
-          "start": 13.8,
-          "end": 14.733,
-          "en": "in this video",
-          "zh": "在这个视频中",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 8,
-          "start": 14.833,
-          "end": 18.8,
-          "en": "I will teach you everything you need to know about time",
-          "zh": "我会教你关于时间你需要知道的一切",
-          "phonetic": "",
-          "keywords": [
-            "everything you need to know"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 9,
-          "start": 24.733,
-          "end": 27.0,
-          "en": "what other ways can we say",
-          "zh": "我们还能用什么方式说",
-          "phonetic": "",
-          "keywords": [
-            "what other ways"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 10,
-          "start": 27.0,
-          "end": 28.3,
-          "en": "what time is it",
-          "zh": "现在是什么时间？",
-          "phonetic": "",
-          "keywords": [
-            "what time is it"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 11,
-          "start": 28.533,
-          "end": 29.333,
-          "en": "well",
-          "zh": "嗯",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 12,
-          "start": 29.9,
-          "end": 31.633,
-          "en": "it depends on the situation",
-          "zh": "这取决于具体情况。",
-          "phonetic": "",
-          "keywords": [
-            "it depends on",
-            "situation"
-          ],
-          "vocab": [
-            "situation"
-          ]
-        },
-        {
-          "id": 13,
-          "start": 32.233,
-          "end": 35.9,
-          "en": "for example if you're at work you might say",
-          "zh": "例如，如果你在工作，你可能会问",
-          "phonetic": "",
-          "keywords": [
-            "for example",
-            "you might say"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 14,
-          "start": 36.133,
-          "end": 38.466,
-          "en": "Luigi do you know what time it is",
-          "zh": "路易吉，你知道现在几点了吗？",
-          "phonetic": "",
-          "keywords": [
-            "do you know what time it is"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 15,
-          "start": 39.5,
-          "end": 42.3,
-          "en": "if you're asking a stranger in the streets",
-          "zh": "如果你在街上问陌生人",
-          "phonetic": "",
-          "keywords": [
-            "a stranger",
-            "in the streets"
-          ],
-          "vocab": [
-            "stranger"
-          ]
-        },
-        {
-          "id": 16,
-          "start": 42.3,
-          "end": 43.1,
-          "en": "you would say",
-          "zh": "你会说",
-          "phonetic": "",
-          "keywords": [
-            "you would say"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 17,
-          "start": 43.7,
-          "end": 45.933,
-          "en": "excuse me have you got the time",
-          "zh": "打扰一下，你知道几点了吗？",
-          "phonetic": "",
-          "keywords": [
-            "excuse me",
-            "have you got the time"
-          ],
-          "vocab": [
-            "have you got the time"
-          ]
-        },
-        {
-          "id": 18,
-          "start": 46.533,
-          "end": 50.066,
-          "en": "and if you're asking a close friend or a family member",
-          "zh": "如果你问的是好朋友或家人",
-          "phonetic": "",
-          "keywords": [
-            "close friend",
-            "family member"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 19,
-          "start": 50.3,
-          "end": 51.2,
-          "en": "you might say",
-          "zh": "你可能会说",
-          "phonetic": "",
-          "keywords": [
-            "you might say"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 20,
-          "start": 51.666,
-          "end": 52.9,
-          "en": "what time is it?",
-          "zh": "现在是什么时间？",
-          "phonetic": "",
-          "keywords": [
-            "what time is it"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 21,
-          "start": 53.033,
-          "end": 53.833,
-          "en": "or",
-          "zh": "或者",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 22,
-          "start": 53.866,
-          "end": 55.533,
-          "en": "got the time?",
-          "zh": "知道几点了吗？",
-          "phonetic": "",
-          "keywords": [
-            "got the time"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 23,
-          "start": 55.533,
-          "end": 56.066,
-          "en": "it's",
-          "zh": "现在",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 24,
-          "start": 57.0,
-          "end": 58.666,
-          "en": "7:00 seven o'clock",
-          "zh": "7：00（七点）",
-          "phonetic": "",
-          "keywords": [
-            "o'clock"
-          ],
-          "vocab": [
-            "o'clock"
-          ]
-        },
-        {
-          "id": 25,
-          "start": 59.666,
-          "end": 60.466,
-          "en": "or is it",
-          "zh": "或者",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 26,
-          "start": 61.466,
-          "end": 65.633,
-          "en": "actually it's more natural to just say it's seven",
-          "zh": "更自然的说法就是七点了。",
-          "phonetic": "",
-          "keywords": [
-            "more natural",
-            "just say"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 27,
-          "start": 66.933,
-          "end": 68.3,
-          "en": "and at seven",
-          "zh": "在七点",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 28,
-          "start": 68.3,
-          "end": 69.1,
-          "en": "I like to",
-          "zh": "我喜欢",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 29,
-          "start": 72.5,
-          "end": 75.0,
-          "en": "do the horse stance for 5 minutes",
-          "zh": "蹲五分钟的马步",
-          "phonetic": "",
-          "keywords": [
-            "horse stance"
-          ],
-          "vocab": [
-            "horse stance"
-          ]
-        },
-        {
-          "id": 30,
-          "start": 76.466,
-          "end": 78.866,
-          "en": "read a book for 5 minutes",
-          "zh": "读五分钟的书",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 31,
-          "start": 81.433,
-          "end": 82.466,
-          "en": "and finally",
-          "zh": "最后",
-          "phonetic": "",
-          "keywords": [
-            "and finally"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 32,
-          "start": 83.7,
-          "end": 86.833,
-          "en": "meditate for 5 minutes",
-          "zh": "冥想五分钟",
-          "phonetic": "",
-          "keywords": [
-            "meditate"
-          ],
-          "vocab": [
-            "meditate"
-          ]
-        },
-        {
-          "id": 33,
-          "start": 89.066,
-          "end": 89.866,
-          "en": "oh look",
-          "zh": "哦看",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 34,
-          "start": 90.633,
-          "end": 97.533,
-          "en": "it's seven fifteen or as British people say quarter past seven",
-          "zh": "现在是七点十五分，或者像英国人说的：七点一刻",
-          "phonetic": "",
-          "keywords": [
-            "quarter past seven",
-            "as British people say"
-          ],
-          "vocab": [
-            "quarter past"
-          ]
-        },
-        {
-          "id": 35,
-          "start": 98.5,
-          "end": 101.1,
-          "en": "now I'm going to show you a simple way",
-          "zh": "现在我来教你们一个简单的方法",
-          "phonetic": "",
-          "keywords": [
-            "show you a simple way"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 36,
-          "start": 101.1,
-          "end": 102.6,
-          "en": "how to tell the time in Britain",
-          "zh": "在英国，怎么说时间？",
-          "phonetic": "",
-          "keywords": [
-            "tell the time",
-            "in Britain"
-          ],
-          "vocab": [
-            "tell the time"
-          ]
-        },
-        {
-          "id": 37,
-          "start": 102.633,
-          "end": 107.333,
-          "en": "on the right of the clock we say past",
-          "zh": "钟面的右边我们说past",
-          "phonetic": "",
-          "keywords": [
-            "on the right of the clock",
-            "past"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 38,
-          "start": 107.8,
-          "end": 110.933,
-          "en": "on the left of the clock we say to",
-          "zh": "钟面的左边我们说to",
-          "phonetic": "",
-          "keywords": [
-            "on the left of the clock",
-            "to"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 39,
-          "start": 111.666,
-          "end": 115.033,
-          "en": "halfway round we say half",
-          "zh": "正下方我们说half",
-          "phonetic": "",
-          "keywords": [
-            "halfway round",
-            "half"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 40,
-          "start": 115.4,
-          "end": 118.133,
-          "en": "and by the way these are called hands",
-          "zh": "顺便说一下，这两个针叫作指针",
-          "phonetic": "",
-          "keywords": [
-            "by the way",
-            "called hands"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 41,
-          "start": 118.3,
-          "end": 120.533,
-          "en": "big hand little hand",
-          "zh": "分针和时针",
-          "phonetic": "",
-          "keywords": [
-            "big hand",
-            "little hand"
-          ],
-          "vocab": [
-            "big hand little hand"
-          ]
-        },
-        {
-          "id": 42,
-          "start": 121.033,
-          "end": 126.866,
-          "en": "so right now it is five past seven",
-          "zh": "所以现在是七点五分",
-          "phonetic": "",
-          "keywords": [
-            "five past seven"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 43,
-          "start": 127.733,
-          "end": 128.833,
-          "en": "five past seven",
-          "zh": "七点五分",
-          "phonetic": "",
-          "keywords": [
-            "five past seven"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 44,
-          "start": 130.333,
-          "end": 133.0,
-          "en": "now it's ten past seven",
-          "zh": "现在是七点十分",
-          "phonetic": "",
-          "keywords": [
-            "ten past seven"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 45,
-          "start": 135.0,
-          "end": 136.666,
-          "en": "quarter past seven",
-          "zh": "七点一刻",
-          "phonetic": "",
-          "keywords": [
-            "quarter past seven"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 46,
-          "start": 138.2,
-          "end": 139.8,
-          "en": "fifteen minutes later",
-          "zh": "十五分钟后",
-          "phonetic": "",
-          "keywords": [
-            "fifteen minutes later"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 47,
-          "start": 140.1,
-          "end": 142.433,
-          "en": "it is half seven",
-          "zh": "是七点半",
-          "phonetic": "",
-          "keywords": [
-            "half seven"
-          ],
-          "vocab": [
-            "half seven"
-          ]
-        },
-        {
-          "id": 48,
-          "start": 142.5,
-          "end": 144.033,
-          "en": "15 minutes later",
-          "zh": "15分钟以后",
-          "phonetic": "",
-          "keywords": [],
-          "vocab": []
-        },
-        {
-          "id": 49,
-          "start": 144.433,
-          "end": 147.9,
-          "en": "it is quarter to eight",
-          "zh": "是八点差一刻",
-          "phonetic": "",
-          "keywords": [
-            "quarter to eight"
-          ],
-          "vocab": [
-            "quarter to"
-          ]
-        },
-        {
-          "id": 50,
-          "start": 147.9,
-          "end": 151.066,
-          "en": "and remember on the left side of the clock it's to",
-          "zh": "记住，在钟面的左侧要用to",
-          "phonetic": "",
-          "keywords": [
-            "remember",
-            "left side of the clock"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 51,
-          "start": 151.133,
-          "end": 153.3,
-          "en": "so it's 15 minutes to eight",
-          "zh": "所以现在是差15分钟到8点",
-          "phonetic": "",
-          "keywords": [
-            "15 minutes to eight"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 52,
-          "start": 153.533,
-          "end": 155.033,
-          "en": "it's quarter to eight",
-          "zh": "也就是差一刻到八点",
-          "phonetic": "",
-          "keywords": [
-            "quarter to eight"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 53,
-          "start": 156.0,
-          "end": 158.0,
-          "en": "now it's ten to eight",
-          "zh": "现在是差十分到八点",
-          "phonetic": "",
-          "keywords": [
-            "ten to eight"
-          ],
-          "vocab": []
-        },
-        {
-          "id": 54,
-          "start": 158.9,
-          "end": 163.3,
-          "en": "five to eight and eight o'clock",
-          "zh": "差五分到八点和八点整",
-          "phonetic": "",
-          "keywords": [
-            "five to eight",
-            "eight o'clock"
-          ],
-          "vocab": []
-        }
+        {"id":1,"start":0.033,"end":2.566,"en":"in England we don't say","zh":"在英国我们不说","phonetic":"","keywords":["in England"],"vocab":[]},
+        {"id":2,"start":2.566,"end":3.866,"en":"\u201csix thirty\u201d","zh":"六点半","phonetic":"","keywords":["six thirty"],"vocab":[]},
+        {"id":3,"start":4.433,"end":6.7,"en":"we say half six","zh":"我们说六点半","phonetic":"","keywords":["half six"],"vocab":["half six"]},
+        {"id":4,"start":8.933,"end":9.866,"en":"wait a minute","zh":"等一下","phonetic":"","keywords":["wait a minute"],"vocab":[]},
+        {"id":5,"start":10.133,"end":11.0,"en":"we say","zh":"我们说","phonetic":"","keywords":[],"vocab":[]},
+        {"id":6,"start":11.7,"end":12.5,"en":"one sec","zh":"一秒钟","phonetic":"","keywords":["one sec"],"vocab":["one sec"]},
+        {"id":7,"start":13.8,"end":14.733,"en":"in this video","zh":"在这个视频中","phonetic":"","keywords":[],"vocab":[]},
+        {"id":8,"start":14.833,"end":18.8,"en":"I will teach you everything you need to know about time","zh":"我会教你关于时间你需要知道的一切","phonetic":"","keywords":["everything you need to know"],"vocab":[]},
+        {"id":9,"start":24.733,"end":27.0,"en":"what other ways can we say","zh":"我们还能用什么方式说","phonetic":"","keywords":["what other ways"],"vocab":[]},
+        {"id":10,"start":27.0,"end":28.3,"en":"what time is it","zh":"现在是什么时间？","phonetic":"","keywords":["what time is it"],"vocab":[]},
+        {"id":11,"start":28.533,"end":29.333,"en":"well","zh":"嗯","phonetic":"","keywords":[],"vocab":[]},
+        {"id":12,"start":29.9,"end":31.633,"en":"it depends on the situation","zh":"这取决于具体情况。","phonetic":"","keywords":["it depends on","situation"],"vocab":["situation"]},
+        {"id":13,"start":32.233,"end":35.9,"en":"for example if you're at work you might say","zh":"例如，如果你在工作，你可能会问","phonetic":"","keywords":["for example","you might say"],"vocab":[]},
+        {"id":14,"start":36.133,"end":38.466,"en":"Luigi do you know what time it is","zh":"路易吉，你知道现在几点了吗？","phonetic":"","keywords":["do you know what time it is"],"vocab":[]},
+        {"id":15,"start":39.5,"end":42.3,"en":"if you're asking a stranger in the streets","zh":"如果你在街上问陌生人","phonetic":"","keywords":["a stranger","in the streets"],"vocab":["stranger"]},
+        {"id":16,"start":42.3,"end":43.1,"en":"you would say","zh":"你会说","phonetic":"","keywords":["you would say"],"vocab":[]},
+        {"id":17,"start":43.7,"end":45.933,"en":"excuse me have you got the time","zh":"打扰一下，你知道几点了吗？","phonetic":"","keywords":["excuse me","have you got the time"],"vocab":["have you got the time"]},
+        {"id":18,"start":46.533,"end":50.066,"en":"and if you're asking a close friend or a family member","zh":"如果你问的是好朋友或家人","phonetic":"","keywords":["close friend","family member"],"vocab":[]},
+        {"id":19,"start":50.3,"end":51.2,"en":"you might say","zh":"你可能会说","phonetic":"","keywords":["you might say"],"vocab":[]},
+        {"id":20,"start":51.666,"end":52.9,"en":"what time is it?","zh":"现在是什么时间？","phonetic":"","keywords":["what time is it"],"vocab":[]},
+        {"id":21,"start":53.033,"end":53.833,"en":"or","zh":"或者","phonetic":"","keywords":[],"vocab":[]},
+        {"id":22,"start":53.866,"end":55.533,"en":"got the time?","zh":"知道几点了吗？","phonetic":"","keywords":["got the time"],"vocab":[]},
+        {"id":23,"start":55.533,"end":56.066,"en":"it's","zh":"现在","phonetic":"","keywords":[],"vocab":[]},
+        {"id":24,"start":57.0,"end":58.666,"en":"7:00 seven o'clock","zh":"7：00（七点）","phonetic":"","keywords":["o'clock"],"vocab":["o'clock"]},
+        {"id":25,"start":59.666,"end":60.466,"en":"or is it","zh":"或者","phonetic":"","keywords":[],"vocab":[]},
+        {"id":26,"start":61.466,"end":65.633,"en":"actually it's more natural to just say it's seven","zh":"更自然的说法就是七点了。","phonetic":"","keywords":["more natural","just say"],"vocab":[]},
+        {"id":27,"start":66.933,"end":68.3,"en":"and at seven","zh":"在七点","phonetic":"","keywords":[],"vocab":[]},
+        {"id":28,"start":68.3,"end":69.1,"en":"I like to","zh":"我喜欢","phonetic":"","keywords":[],"vocab":[]},
+        {"id":29,"start":72.5,"end":75.0,"en":"do the horse stance for 5 minutes","zh":"蹲五分钟的马步","phonetic":"","keywords":["horse stance"],"vocab":["horse stance"]},
+        {"id":30,"start":76.466,"end":78.866,"en":"read a book for 5 minutes","zh":"读五分钟的书","phonetic":"","keywords":[],"vocab":[]},
+        {"id":31,"start":81.433,"end":82.466,"en":"and finally","zh":"最后","phonetic":"","keywords":["and finally"],"vocab":[]},
+        {"id":32,"start":83.7,"end":86.833,"en":"meditate for 5 minutes","zh":"冥想五分钟","phonetic":"","keywords":["meditate"],"vocab":["meditate"]},
+        {"id":33,"start":89.066,"end":89.866,"en":"oh look","zh":"哦看","phonetic":"","keywords":[],"vocab":[]},
+        {"id":34,"start":90.633,"end":97.533,"en":"it's seven fifteen or as British people say quarter past seven","zh":"现在是七点十五分，或者像英国人说的：七点一刻","phonetic":"","keywords":["quarter past seven","as British people say"],"vocab":["quarter past"]},
+        {"id":35,"start":98.5,"end":101.1,"en":"now I'm going to show you a simple way","zh":"现在我来教你们一个简单的方法","phonetic":"","keywords":["show you a simple way"],"vocab":[]},
+        {"id":36,"start":101.1,"end":102.6,"en":"how to tell the time in Britain","zh":"在英国，怎么说时间？","phonetic":"","keywords":["tell the time","in Britain"],"vocab":["tell the time"]},
+        {"id":37,"start":102.633,"end":107.333,"en":"on the right of the clock we say past","zh":"钟面的右边我们说past","phonetic":"","keywords":["on the right of the clock","past"],"vocab":[]},
+        {"id":38,"start":107.8,"end":110.933,"en":"on the left of the clock we say to","zh":"钟面的左边我们说to","phonetic":"","keywords":["on the left of the clock","to"],"vocab":[]},
+        {"id":39,"start":111.666,"end":115.033,"en":"halfway round we say half","zh":"正下方我们说half","phonetic":"","keywords":["halfway round","half"],"vocab":[]},
+        {"id":40,"start":115.4,"end":118.133,"en":"and by the way these are called hands","zh":"顺便说一下，这两个针叫作指针","phonetic":"","keywords":["by the way","called hands"],"vocab":[]},
+        {"id":41,"start":118.3,"end":120.533,"en":"big hand little hand","zh":"分针和时针","phonetic":"","keywords":["big hand","little hand"],"vocab":["big hand little hand"]},
+        {"id":42,"start":121.033,"end":126.866,"en":"so right now it is five past seven","zh":"所以现在是七点五分","phonetic":"","keywords":["five past seven"],"vocab":[]},
+        {"id":43,"start":127.733,"end":128.833,"en":"five past seven","zh":"七点五分","phonetic":"","keywords":["five past seven"],"vocab":[]},
+        {"id":44,"start":130.333,"end":133.0,"en":"now it's ten past seven","zh":"现在是七点十分","phonetic":"","keywords":["ten past seven"],"vocab":[]},
+        {"id":45,"start":135.0,"end":136.666,"en":"quarter past seven","zh":"七点一刻","phonetic":"","keywords":["quarter past seven"],"vocab":[]},
+        {"id":46,"start":138.2,"end":139.8,"en":"fifteen minutes later","zh":"十五分钟后","phonetic":"","keywords":["fifteen minutes later"],"vocab":[]},
+        {"id":47,"start":140.1,"end":142.433,"en":"it is half seven","zh":"是七点半","phonetic":"","keywords":["half seven"],"vocab":["half seven"]},
+        {"id":48,"start":142.5,"end":144.033,"en":"15 minutes later","zh":"15分钟以后","phonetic":"","keywords":[],"vocab":[]},
+        {"id":49,"start":144.433,"end":147.9,"en":"it is quarter to eight","zh":"是八点差一刻","phonetic":"","keywords":["quarter to eight"],"vocab":["quarter to"]},
+        {"id":50,"start":147.9,"end":151.066,"en":"and remember on the left side of the clock it's to","zh":"记住，在钟面的左侧要用to","phonetic":"","keywords":["remember","left side of the clock"],"vocab":[]},
+        {"id":51,"start":151.133,"end":153.3,"en":"so it's 15 minutes to eight","zh":"所以现在是差15分钟到8点","phonetic":"","keywords":["15 minutes to eight"],"vocab":[]},
+        {"id":52,"start":153.533,"end":155.033,"en":"it's quarter to eight","zh":"也就是差一刻到八点","phonetic":"","keywords":["quarter to eight"],"vocab":[]},
+        {"id":53,"start":156.0,"end":158.0,"en":"now it's ten to eight","zh":"现在是差十分到八点","phonetic":"","keywords":["ten to eight"],"vocab":[]},
+        {"id":54,"start":158.9,"end":163.3,"en":"five to eight and eight o'clock","zh":"差五分到八点和八点整","phonetic":"","keywords":["five to eight","eight o'clock"],"vocab":[]}
       ],
       "wordList": [
-        {
-          "word": "quarter past",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "几点过一刻，如 quarter past seven = 7:15"
-        },
-        {
-          "word": "quarter to",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "差一刻几点，如 quarter to eight = 7:45"
-        },
-        {
-          "word": "half six",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "英式说法，表示六点半 6:30"
-        },
-        {
-          "word": "half seven",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "英式说法，表示七点半 7:30"
-        },
-        {
-          "word": "one sec",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "等一秒，口语中表示稍等"
-        },
-        {
-          "word": "big hand little hand",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "分针和时针"
-        },
-        {
-          "word": "o'clock",
-          "level": "初级",
-          "type": "单词",
-          "meaning": "整点，如 seven o'clock = 七点整"
-        },
-        {
-          "word": "have you got the time",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "英式礼貌问法：请问几点了？"
-        },
-        {
-          "word": "tell the time",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "读时间；说出时间"
-        },
-        {
-          "word": "meditate",
-          "level": "四级",
-          "type": "单词",
-          "meaning": "冥想；沉思"
-        },
-        {
-          "word": "horse stance",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "马步，一种锻炼姿势"
-        },
-        {
-          "word": "it depends on",
-          "level": "四级",
-          "type": "短语",
-          "meaning": "取决于……"
-        },
-        {
-          "word": "by the way",
-          "level": "口语",
-          "type": "短语",
-          "meaning": "顺便说一下"
-        }
+        {"word":"quarter past","level":"口语","type":"短语","meaning":"几点过一刻，如 quarter past seven = 7:15"},
+        {"word":"quarter to","level":"口语","type":"短语","meaning":"差一刻几点，如 quarter to eight = 7:45"},
+        {"word":"half six","level":"口语","type":"短语","meaning":"英式说法，表示六点半 6:30"},
+        {"word":"half seven","level":"口语","type":"短语","meaning":"英式说法，表示七点半 7:30"},
+        {"word":"one sec","level":"口语","type":"短语","meaning":"等一秒，口语中表示稍等"},
+        {"word":"big hand little hand","level":"口语","type":"短语","meaning":"分针和时针"},
+        {"word":"o'clock","level":"初级","type":"单词","meaning":"整点，如 seven o'clock = 七点整"},
+        {"word":"have you got the time","level":"口语","type":"短语","meaning":"英式礼貌问法：请问几点了？"},
+        {"word":"tell the time","level":"口语","type":"短语","meaning":"读时间；说出时间"},
+        {"word":"meditate","level":"四级","type":"单词","meaning":"冥想；沉思"},
+        {"word":"horse stance","level":"口语","type":"短语","meaning":"马步，一种锻炼姿势"},
+        {"word":"it depends on","level":"四级","type":"短语","meaning":"取决于……"},
+        {"word":"by the way","level":"口语","type":"短语","meaning":"顺便说一下"}
       ],
       "youtubeId": "",
       "youtubeStart": 0,
       "youtubeEnd": 168,
+      "biliId": "",
+      "onedriveEmbed": ""
+    },
+    {
+      "id": 2,
+      "title": "第 2 期",
+      "topic": "自然拼读：A day with dad",
+      "accent": "美国",
+      "difficulty": 1,
+      "description": "A day with dad — 和爸爸一起出门！跟着可爱的动画，学习自然拼读中的 a 发音。适合零基础和小朋友一起学习。",
+      "videoFile": "videos/ep2.mp4",
+      "thumbnail": "videos/ep2.png",
+      "duration": "0:13",
+      "date": "2026-06-08",
+      "subtitles": [
+        {"id":1,"start":1.633,"end":4.2,"en":"that's my hat and my bag","zh":"那是我的帽子和我的包","phonetic":"/ðæts maɪ hæt ænd maɪ bæɡ/","keywords":["hat","bag"],"vocab":["hat","bag"]},
+        {"id":2,"start":4.5,"end":5.866,"en":"and we have a map","zh":"我们还有一张地图","phonetic":"/ænd wiː hæv ə mæp/","keywords":["map"],"vocab":["map"]},
+        {"id":3,"start":7.433,"end":8.933,"en":"this is my dad","zh":"这是我的爸爸","phonetic":"/ðɪs ɪz maɪ dæd/","keywords":["dad"],"vocab":["dad"]},
+        {"id":4,"start":9.066,"end":12.5,"en":"he has a hat a bag and a map","zh":"他有一顶帽子、一个包和一张地图","phonetic":"/hiː hæz ə hæt ə bæɡ ænd ə mæp/","keywords":["hat","bag","map"],"vocab":[]},
+        {"id":5,"start":13.1,"end":13.733,"en":"hahaha","zh":"哈哈哈","phonetic":"/hɑːhɑːhɑː/","keywords":[],"vocab":[]}
+      ],
+      "wordList": [
+        {"word":"hat","level":"初级","type":"单词","meaning":"帽子","phonetic":"/hæt/","example":"That's my hat."},
+        {"word":"bag","level":"初级","type":"单词","meaning":"包；袋子","phonetic":"/bæɡ/","example":"That's my bag."},
+        {"word":"map","level":"初级","type":"单词","meaning":"地图","phonetic":"/mæp/","example":"We have a map."},
+        {"word":"dad","level":"初级","type":"单词","meaning":"爸爸","phonetic":"/dæd/","example":"This is my dad."}
+      ],
+      "youtubeId": "",
+      "youtubeStart": 0,
+      "youtubeEnd": 14,
       "biliId": "",
       "onedriveEmbed": ""
     }
