@@ -10,7 +10,7 @@
       "videoFile": "videos/ep1.mp4",
       "thumbnail": "videos/ep1.jpg",
       "duration": "2:43",
-      "date": "2026-06-03",
+      "date": "2026-06-03","author": "@Jay",
       "subtitles": [
         {"id":1,"start":0.033,"end":2.566,"en":"in England we don't say","zh":"在英国我们不说","phonetic":"","keywords":["in England"],"vocab":[]},
         {"id":2,"start":2.566,"end":3.866,"en":"\u201csix thirty\u201d","zh":"六点半","phonetic":"","keywords":["six thirty"],"vocab":[]},
@@ -98,7 +98,7 @@
       "videoFile": "videos/ep2.mp4",
       "thumbnail": "videos/ep2.png",
       "duration": "0:13",
-      "date": "2026-06-08",
+      "date": "2026-06-08","author": "@zhaozhao",
       "subtitles": [
         {"id":1,"start":1.633,"end":4.2,"en":"that's my hat and my bag","zh":"那是我的帽子和我的包","phonetic":"/ðæts maɪ hæt ænd maɪ bæɡ/","keywords":["that","bag"],"vocab":["hat","bag"]},
         {"id":2,"start":4.5,"end":5.866,"en":"and we have a map","zh":"我们还有一张地图","phonetic":"/ænd wiː hæv ə mæp/","keywords":["map"],"vocab":["map"]},
