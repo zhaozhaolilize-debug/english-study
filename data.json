@@ -100,7 +100,7 @@
       "duration": "0:13",
       "date": "2026-06-08",
       "subtitles": [
-        {"id":1,"start":1.633,"end":4.2,"en":"that's my hat and my bag","zh":"那是我的帽子和我的包","phonetic":"/ðæts maɪ hæt ænd maɪ bæɡ/","keywords":["hat","bag"],"vocab":["hat","bag"]},
+        {"id":1,"start":1.633,"end":4.2,"en":"that's my hat and my bag","zh":"那是我的帽子和我的包","phonetic":"/ðæts maɪ hæt ænd maɪ bæɡ/","keywords":["that","bag"],"vocab":["hat","bag"]},
         {"id":2,"start":4.5,"end":5.866,"en":"and we have a map","zh":"我们还有一张地图","phonetic":"/ænd wiː hæv ə mæp/","keywords":["map"],"vocab":["map"]},
         {"id":3,"start":7.433,"end":8.933,"en":"this is my dad","zh":"这是我的爸爸","phonetic":"/ðɪs ɪz maɪ dæd/","keywords":["dad"],"vocab":["dad"]},
         {"id":4,"start":9.066,"end":12.5,"en":"he has a hat a bag and a map","zh":"他有一顶帽子、一个包和一张地图","phonetic":"/hiː hæz ə hæt ə bæɡ ænd ə mæp/","keywords":["hat","bag","map"],"vocab":[]},
