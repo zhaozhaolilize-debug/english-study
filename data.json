@@ -2,6 +2,7 @@
   "episodes": [
     {
       "id": 1,
+      "category": "vlog",
       "title": "第 1 期",
       "topic": "英式时间表达",
       "accent": "英国",
@@ -90,6 +91,7 @@
     },
     {
       "id": 2,
+      "category": "phonics",
       "title": "第 2 期",
       "topic": "自然拼读：A day with dad",
       "accent": "美国",
